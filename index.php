@@ -61,10 +61,157 @@
 
         <!-- TODO: Add display products -->
 
-        <!-- last child 
+        <!-- second child -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Welcome Guest</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- third child -->
+        <div class="bg-light">
+            <h3 class="text-center">Hidden Store</h3>
+            <p class="text-center">Communications is at the heart of e-commerce</p>
+        </div>
+
+        <!-- fourth child -->
+        <div class="row">
+
+            <div class="col-md-10">
+        
+                <!-- products -->
+                <div class="row">
+                   <div class="col-md-4 mb-2">
+
+                        <div class="card">
+                            <img src="image/dary1.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-info">Add to cart</a>
+                                <a href="#" class="btn btn-secondary">View more</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-2">
+
+                        <div class="card">
+                            <img src="image/apple.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-info">Add to cart</a>
+                                <a href="#" class="btn btn-secondary">View more</a>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-2">
+
+                        <div class="card">
+                            <img src="image/capsicum.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-info">Add to cart</a>
+                                <a href="#" class="btn btn-secondary">View more</a>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+
+                    <div class="col-md-4 mb-2">
+
+                        <div class="card">
+                            <img src="image/capsicum.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-info">Add to cart</a>
+                                <a href="#" class="btn btn-secondary">View more</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-2">
+
+                        <div class="card">
+                            <img src="image/capsicum.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-info">Add to cart</a>
+                                <a href="#" class="btn btn-secondary">View more</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-2">
+
+                        <div class="card">
+                            <img src="image/capsicum.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-info">Add to cart</a>
+                                <a href="#" class="btn btn-secondary">View more</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-2 bg-secondary p-0">
+                
+                <!-- brands to be displayed -->
+                <ul class="navbar-nav me-auto text-center">
+
+                    <li class="nav-item bg-info">
+                        <a href="#" class="nav-link text-light"><h4>Delivery Brands</h4></a>
+                    </li>
+
+                    <!-- php file-->
+
+                    <?php
+                    ?>
+
+                </ul>
+
+                <!-- categories to be displayed -->
+                <ul class="navbar-nav me-auto text-center">
+
+                    <li class="nav-item bg-info">
+                        <a href="#" class="nav-link text-light"><h4>Categories</h4></a>
+                    </li>
+
+                    <!-- php file-->
+
+                </ul>
+            </div>
+
+        </div>
+
+
+        <!-- last child -->
         <div class="bg-info p-3 text-center">
             <p>All right reserved - Designed by Belvi-2024</p>
-        </div>-->
+        </div>
     </div>
     <!-- bootstrap js link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
