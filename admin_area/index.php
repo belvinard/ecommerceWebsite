@@ -1,3 +1,8 @@
+<!-- connect file -->
+<?php
+   // include("includes/connect.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,12 +54,12 @@
                 <div class="button text-center">
                     <button><a href="insert_product.php" class="nav-link text-light bg-info my-1">Insert Products</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">View Products</a></button>
-                    <button><a href="admin.php?insert_category" class="nav-link text-light bg-info my-1">Insert Categories</a></button>
+                    <button><a href="index.php?insert_category" class="nav-link text-light bg-info my-1">Insert Categories</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">View Categories</a></button>
-                    <button><a href="admin.php?insert_brand" class="nav-link text-light bg-info my-1">Insert Brands</a></button>
+                    <button><a href="index.php?insert_brand" class="nav-link text-light bg-info my-1">Insert Brands</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">View Brands</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">All orders</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">All Payements</a></button>
+                    <button><a href="" class="nav-link text-light bg-info my-1">All Payments</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">List users</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">Logout</a></button>
                 </div>
