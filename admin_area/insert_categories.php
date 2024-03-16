@@ -6,7 +6,8 @@ include("../includes/connect.php");
 
 // to insert the product in the database
 if (isset($_POST["insert_cat"])) {
-    $category_title = $_POST["cat_title"];
+    //$category_title = $_POST["cat_title"];
+    $category_title = filter_var($_POST["cat_title"], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
     // Verify if the category title is empty
     if (empty($category_title)) {
