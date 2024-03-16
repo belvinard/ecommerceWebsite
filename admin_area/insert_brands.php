@@ -6,7 +6,8 @@
 
     // to insert the product in the data base
     if(isset($_POST["insert_brand"])){
-        $brand_title=$_POST["brand_title"];
+        //$brand_title=$_POST["brand_title"];
+        $brand_title = filter_var($_POST["brand_title"], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         // Verify if the brand title is empty
         if(empty($brand_title)){
