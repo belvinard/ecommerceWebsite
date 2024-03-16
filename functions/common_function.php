@@ -36,7 +36,7 @@
                                 <h5 class='card-title'>$products_title</h5>
                                 <p class='card-text'>$products_description</p>
                                 <a href='#' class='btn btn-info'>Add to cart</a>
-                                <a href='#' class='btn btn-secondary'>View more</a>
+                                <a href='product-details.php?product_id=$products_id' class='btn btn-secondary'>View more</a>
                             </div>
                         </div>
                     </div>";
@@ -84,7 +84,7 @@
                                 <h5 class='card-title'>$products_title</h5>
                                 <p class='card-text'>$products_description</p>
                                 <a href='#' class='btn btn-info'>Add to cart</a>
-                                <a href='#' class='btn btn-secondary'>View more</a>
+                                <a href='product-details.php?product_id=$products_id' class='btn btn-secondary'>View more</a>
                             </div>
                         </div>
                     </div>";
@@ -137,7 +137,7 @@
                             <h5 class='card-title'>$products_title</h5>
                             <p class='card-text'>$products_description</p>
                             <a href='#' class='btn btn-info'>Add to cart</a>
-                            <a href='#' class='btn btn-secondary'>View more</a>
+                            <a href='product-details.php?product_id=$products_id' class='btn btn-secondary'>View more</a>
                         </div>
                     </div>
                 </div>";
@@ -190,7 +190,7 @@
                             <h5 class='card-title'>$products_title</h5>
                             <p class='card-text'>$products_description</p>
                             <a href='#' class='btn btn-info'>Add to cart</a>
-                            <a href='#' class='btn btn-secondary'>View more</a>
+                            <a href='product-details.php?product_id=$products_id' class='btn btn-secondary'>View more</a>
                         </div>
                     </div>
                 </div>";
@@ -273,7 +273,7 @@
                             <h5 class='card-title'>$products_title</h5>
                             <p class='card-text'>$products_description</p>
                             <a href='#' class='btn btn-info'>Add to cart</a>
-                            <a href='#' class='btn btn-secondary'>View more</a>
+                            <a href='product-details.php?product_id=$products_id' class='btn btn-secondary'>View more</a>
                         </div>
                     </div>
                 </div>";

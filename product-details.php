@@ -97,11 +97,39 @@
             <div class="col-md-10">
         
                 <!-- products -->
-                <div class="row px-0">
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- card -->
+                        <div class='card'>
+                            <img src='./image/food1.png' class='card-img-top' alt='$products_title'>
+                            <div class='card-body'>
+                                <h5 class='card-title'>$products_title</h5>
+                                <p class='card-text'>$products_description</p>
+                                <a href='#' class='btn btn-info'>Add to cart</a>
+                                <a href='#' class='btn btn-secondary'>View more</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <!-- relates images -->
+                        <div class="col-md-12">
+                            <h4 class="text-center text-info mb-5">Related products</h4>
+                        </div>
+
+                        <div class="col-md-6">
+                            <img src='./image/food2.png' class='card-img-top' alt='$products_title'>
+                        </div>
+
+                        <div class="col-md-6">
+                            <img src='./image/food3.png' class='card-img-top' alt='$products_title'>
+                        </div>
+                    </div>
+
+
                     <!-- fetching products -->
                     <?php
-                        //Calling function
-                       getproducts();
+                       //Calling function
                        get_unique_categories();
                        get_unique_brands();
 
