@@ -98,8 +98,8 @@
         
                 <!-- products -->
                 <div class="row">
-                    <div class="col-md-4">
-                        <!-- card -->
+                    <!--<div class="col-md-4">
+                        !-- card 
                         <div class='card'>
                             <img src='./image/food1.png' class='card-img-top' alt='$products_title'>
                             <div class='card-body'>
@@ -109,10 +109,10 @@
                                 <a href='#' class='btn btn-secondary'>View more</a>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
-                    <div class="col-md-8">
-                        <!-- relates images -->
+                    <!--<div class="col-md-8">
+                        !-- relates images --
                         <div class="col-md-12">
                             <h4 class="text-center text-info mb-5">Related products</h4>
                         </div>
@@ -124,12 +124,14 @@
                         <div class="col-md-6">
                             <img src='./image/food3.png' class='card-img-top' alt='$products_title'>
                         </div>
-                    </div>
+
+                    </div>-->
 
 
                     <!-- fetching products -->
                     <?php
                        //Calling function
+                       view_details();
                        get_unique_categories();
                        get_unique_brands();
 

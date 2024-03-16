@@ -290,4 +290,76 @@
         
     }
 
+    // View details function
+    function view_details(){
+        global $con;
+        // Condition to check isset or not
+        if(isset($_GET['product_id'])){
+            if(!isset($_GET['category'])){
+                if(!isset($_GET['brand'])){
+                    $product_id=$_GET['product_id'];
+                    try {
+                        $select_query = "SELECT * FROM `productsInserted` WHERE products_id=$product_id";
+                        $stmt = $con->prepare($select_query);
+                        $stmt->execute();
+
+                        // Fetch the first row (product) from the result set
+                        //$row = $stmt->fetch(PDO::FETCH_ASSOC);
+                        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                
+                            // Access individual fields
+                            $products_id = $row['products_id'];
+                            $products_title = $row['products_title'];
+                            $products_description = $row['products_description'];
+                            $categories_id = $row['categories_id'];
+                            $brands_id = $row['brands_id'];
+                            $products_image1 = $row['products_image1'];
+                            $products_image2 = $row['products_image2'];
+                            $products_image3 = $row['products_image3'];
+                            $products_price = $row['products_price'];
+
+                            echo "
+                                <div class='col-md-4 mb-2'>
+                                    <div class='card'>
+                                        <img src='./admin_area/product_images/$products_image1' class='card-img-top' alt='$products_title'>
+                                        <div class='card-body'>
+                                            <h5 class='card-title'>$products_title</h5>
+                                            <p class='card-text'>$products_description</p>
+                                            <a href='#' class='btn btn-info'>Add to cart</a>
+                                            <a href='#' class='btn btn-secondary'>View more</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class='col-md-8'>
+                                    <!-- relates images -->
+                                    <div class='row'>
+                                        <div class='col-md-12'>
+                                            <h4 class='text-center text-info mb-5'>Related products</h4>
+                                        </div>
+
+                                        <div class='col-md-6'>
+                                            <img src='./admin_area/product_images/$products_image2' class='card-img-top' alt='$products_title'>
+                                        </div>
+
+                                        <div class='col-md-6'>
+                                            <img src='./admin_area/product_images/$products_image3' class='card-img-top' alt='$products_title'>
+                                        </div>
+                                    </div>
+                        
+                                </div>
+                            ";
+
+                        }
+
+                    } catch (PDOException $e) {
+                    // Handle any errors that occur during the execution of the query
+                    echo "Error: " . $e->getMessage();
+                    }
+                }
+            }
+
+        }
+    }
+
 ?>
