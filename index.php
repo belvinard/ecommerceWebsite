@@ -88,13 +88,56 @@
         </div>
 
         <!-- fourth child -->
-        <div class="row">
+        <div class="row px-1">
 
             <div class="col-md-10">
         
                 <!-- products -->
-                <div class="row">
-                   <div class="col-md-4 mb-2">
+                <div class="row px-5">
+                    <!-- fetching products -->
+                    <?php
+
+                        try {
+                            // Prepare and execute the query to fetch the products
+                            //$select_query = "SELECT * FROM `productsInserted` order by products_title"; 
+                            $select_query = "SELECT * FROM `productsInserted` order by rand() LIMIT 0,9";
+                            $stmt = $con->prepare($select_query);
+                            $stmt->execute();
+
+                            // Fetch the first row (product) from the result set
+                            //$row = $stmt->fetch(PDO::FETCH_ASSOC);
+                            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                                
+                                // Access individual fields
+                                $products_id = $row['products_id'];
+                                $products_title = $row['products_title'];
+                                $products_description = $row['products_description'];
+                                $categories_id = $row['categories_id'];
+                                $brands_id = $row['brands_id'];
+                                $products_image1 = $row['products_image1'];
+                                $products_price = $row['products_price'];
+
+                                echo "<div class='col-md-4 mb-2'>
+                                <div class='card'>
+                                    <img src='./admin_area/product_images/$products_image1' class='card-img-top' alt='$products_title'>
+                                    <div class='card-body'>
+                                        <h5 class='card-title'>$products_title</h5>
+                                        <p class='card-text'>$products_description</p>
+                                        <a href='#' class='btn btn-info'>Add to cart</a>
+                                        <a href='#' class='btn btn-secondary'>View more</a>
+                                    </div>
+                                </div>
+                            </div>";
+
+
+                            }
+
+                        } catch (PDOException $e) {
+                            // Handle any errors that occur during the execution of the query
+                            echo "Error: " . $e->getMessage();
+                        }
+                    ?>
+                   <!--<div class="col-md-4 mb-2">
 
                         <div class="card">
                             <img src="image/dary1.png" class="card-img-top" alt="...">
@@ -107,80 +150,11 @@
 
                         </div>
 
-                    </div>
-
-                    <div class="col-md-4 mb-2">
-
-                        <div class="card">
-                            <img src="image/apple.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-info">Add to cart</a>
-                                <a href="#" class="btn btn-secondary">View more</a>
-                            </div>
-                            
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-4 mb-2">
-
-                        <div class="card">
-                            <img src="image/capsicum.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-info">Add to cart</a>
-                                <a href="#" class="btn btn-secondary">View more</a>
-                            </div>
-                            
-                        </div>
-                        
-                    </div>
-
-                    <div class="col-md-4 mb-2">
-
-                        <div class="card">
-                            <img src="image/capsicum.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-info">Add to cart</a>
-                                <a href="#" class="btn btn-secondary">View more</a>
-                            </div>
-                            
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 mb-2">
-
-                        <div class="card">
-                            <img src="image/capsicum.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-info">Add to cart</a>
-                                <a href="#" class="btn btn-secondary">View more</a>
-                            </div>
-                            
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 mb-2">
-
-                        <div class="card">
-                            <img src="image/capsicum.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-info">Add to cart</a>
-                                <a href="#" class="btn btn-secondary">View more</a>
-                            </div>
-                            
-                        </div>
-                    </div>
+                    </div>-->
+                    <!-- row end -->
+                    
                 </div>
+                <!-- column end -->
 
             </div>
 
@@ -194,8 +168,19 @@
                     </li>
 
                     <!-- php file-->
-
                     <?php
+                        $select_brands = "SELECT * FROM `brands`";
+                        $stmt = $con->prepare($select_brands);
+                        $stmt->execute();
+
+                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                            $brand_title = $row['brand_title'];
+                            $brands_id = $row['brands_id'];
+                            echo "
+                                <li class='nav-item'>
+                                    <a href='index.php?brand=$brands_id' class='nav-link text-light'>$brand_title</a>
+                                </li>";
+                        }
                     ?>
 
                 </ul>
@@ -208,6 +193,19 @@
                     </li>
 
                     <!-- php file-->
+                    <?php
+                        $select_categories = "SELECT * FROM `categories`";
+                        $stmt = $con->prepare($select_categories);
+                        $stmt->execute();
+                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                            $category_title = $row['category_title'];
+                            $category_id = $row['categories_id'];
+                            echo "
+                                <li class='nav-item'>
+                                    <a href='index.php?category=$category_id' class='nav-link text-light'>$category_title</a>
+                                </li>";
+                        }
+                    ?>
 
                 </ul>
             </div>
