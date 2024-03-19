@@ -37,6 +37,7 @@
                             <div class='card-body'>
                                 <h5 class='card-title'>$products_title</h5>
                                 <p class='card-text'>$products_description</p>
+                                <p class='card-text'>Price: $products_price</p>
                                 <a href='index.php?add_to_cart=$products_id' class='btn btn-info'>Add to cart</a>
                                 <a href='product-details.php?product_id=$products_id' class='btn btn-secondary'>View more</a>
                             </div>
@@ -85,6 +86,7 @@
                             <div class='card-body'>
                                 <h5 class='card-title'>$products_title</h5>
                                 <p class='card-text'>$products_description</p>
+                                <p class='card-text'>Price: $products_price</p>
                                 <a href='index.php?add_to_cart=$products_id' class='btn btn-info'>Add to cart</a>
                                 <a href='product-details.php?product_id=$products_id' class='btn btn-secondary'>View more</a>
                             </div>
@@ -138,6 +140,7 @@
                         <div class='card-body'>
                             <h5 class='card-title'>$products_title</h5>
                             <p class='card-text'>$products_description</p>
+                            <p class='card-text'>Price: $products_price</p>
                             <a href='index.php?add_to_cart=$products_id' class='btn btn-info'>Add to cart</a>
                             <a href='product-details.php?product_id=$products_id' class='btn btn-secondary'>View more</a>
                         </div>
@@ -191,6 +194,7 @@
                         <div class='card-body'>
                             <h5 class='card-title'>$products_title</h5>
                             <p class='card-text'>$products_description</p>
+                            <p class='card-text'>Price: $products_price</p>
                             <a href='index.php?add_to_cart=$products_id' class='btn btn-info'>Add to cart</a>
                             <a href='product-details.php?product_id=$products_id' class='btn btn-secondary'>View more</a>
                         </div>
@@ -274,6 +278,7 @@
                         <div class='card-body'>
                             <h5 class='card-title'>$products_title</h5>
                             <p class='card-text'>$products_description</p>
+                            <p class='card-text'>Price: $products_price</p>
                             <a href='index.php?add_to_cart=$products_id' class='btn btn-info'>Add to cart</a>
                             <a href='product-details.php?product_id=$products_id' class='btn btn-secondary'>View more</a>
                         </div>
@@ -327,6 +332,7 @@
                                         <div class='card-body'>
                                             <h5 class='card-title'>$products_title</h5>
                                             <p class='card-text'>$products_description</p>
+                                            <p class='card-text'>Price: $products_price</p>
                                             <a href='index.php?add_to_cart=$products_id' class='btn btn-info'>Add to cart</a>
                                             <a href='index.php' class='btn btn-secondary'>Go home</a>
                                         </div>
@@ -445,6 +451,37 @@
         }
 
         echo $count_cart_items;
+    }
+
+    // Total cart price
+    function total_cart_price(){
+        global $con;
+        $get_ip_address = getIPAddress();
+        $total_price = 0;
+
+        try{
+            $cart_query = "SELECT * FROM `cart_details` WHERE ip_address=:ip_address";
+            $result_query = $con->prepare($cart_query);
+            $result_query->bindParam(':ip_address', $get_ip_address);
+            $result_query->execute();
+
+            while($row=$result_query->fetch(PDO::FETCH_ASSOC)){
+                $product_id = $row['product_id'];
+                $selects_products = "SELECT * FROM `productsInserted` WHERE products_id=:products_id";
+                $result_products = $con->prepare($selects_products);
+                $result_products->bindParam(':products_id',  $product_id);
+                $result_products-> execute();
+
+                while($row_products_price=$result_products->fetch(PDO::FETCH_ASSOC)){
+                    $products_price = array($row_products_price['products_price']); // [200, 300]
+                    $products_values = array_sum( $products_price); // [500]
+                    $total_price += $products_values; // 300
+                }
+            }
+            echo $total_price;
+        }catch(PDOException $e){
+            echo "Error: " . $e->getMessage();
+        }
     }
     
     
