@@ -51,7 +51,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i><sup>1</sup></a>
+                        <a class="nav-link" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i><sup><?php cart_item(); ?></sup></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Total price:100/-</a>
@@ -69,6 +69,12 @@
                 </div>
             </div>
         </nav>
+
+        <!-- Calling cart function -->
+        <?php
+            cart();
+        ?>
+
 
         <!-- TODO: Add display products -->
 

@@ -51,7 +51,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i><sup>1</sup></a>
+                        <a class="nav-link" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i><sup><?php cart_item(); ?></sup></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Total price:100/-</a>
@@ -69,6 +69,13 @@
                 </div>
             </div>
         </nav>
+
+        <!-- Calling function -->
+        <?php
+            error_reporting(E_ALL);
+            ini_set('display_errors', '1');
+            cart();
+        ?>
 
         <!-- TODO: Add display products -->
 
@@ -104,6 +111,8 @@
                        getproducts();
                        get_unique_categories();
                        get_unique_brands();
+                       $ip = getIPAddress();  
+                     echo 'User Real IP Address - '.$ip;  
 
                     ?>
                     <!-- row end -->
