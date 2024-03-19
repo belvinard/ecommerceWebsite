@@ -412,5 +412,41 @@
             }
         }
     }
+
+    // Function to get cart item numbers
+    function cart_item(){
+        if(isset($_GET['add_to_cart'])) {
+            global $con;
+            $get_ip_address = getIPAddress();
+            
+            try {
+                $select_query = "SELECT * FROM `cart_details` WHERE ip_address=:ip_address";
+                $stmt = $con->prepare($select_query);
+                $stmt->bindParam(':ip_address', $get_ip_address);
+                $stmt->execute();
+                $count_cart_items = $stmt->rowCount();
+                    
+            } catch(PDOException $e) {
+                echo "Error : " . $e->getMessage();
+            }
+        }else{
+            global $con;
+            $get_ip_address = getIPAddress();
+            try {
+                $select_query = "SELECT * FROM `cart_details` WHERE ip_address=:ip_address";
+                $stmt = $con->prepare($select_query);
+                $stmt->bindParam(':ip_address', $get_ip_address);
+                $stmt->execute();
+                $count_cart_items = $stmt->rowCount();
+                    
+            } catch(PDOException $e) {
+                echo "Error : " . $e->getMessage();
+            }
+        }
+
+        echo $count_cart_items;
+    }
+    
+    
     
 ?>
