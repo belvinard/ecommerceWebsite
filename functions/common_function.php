@@ -3,6 +3,8 @@
     error_reporting(E_ALL);
     ini_set('display_errors', '1');
     include('./includes/connect.php');
+    
+
 
     // Getting products
     function getproducts(){
@@ -10,11 +12,11 @@
         if(!isset($_GET['category'])){
             if(!isset($_GET['brand'])){
                 try {
-                // Prepare and execute the query to fetch the products
-                //$select_query = "SELECT * FROM `productsInserted` order by products_title"; 
-                $select_query = "SELECT * FROM `productsInserted` order by rand() LIMIT 0,9";
-                $stmt = $con->prepare($select_query);
-                $stmt->execute();
+                    // Prepare and execute the query to fetch the products
+                    //$select_query = "SELECT * FROM `productsInserted` order by products_title"; 
+                    $select_query = "SELECT * FROM `productsInserted` order by rand() LIMIT 0,9";
+                    $stmt = $con->prepare($select_query);
+                    $stmt->execute();
 
                     // Fetch the first row (product) from the result set
                     //$row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -35,7 +37,7 @@
                             <div class='card-body'>
                                 <h5 class='card-title'>$products_title</h5>
                                 <p class='card-text'>$products_description</p>
-                                <a href='#' class='btn btn-info'>Add to cart</a>
+                                <a href='index.php?add_to_cart=$products_id' class='btn btn-info'>Add to cart</a>
                                 <a href='product-details.php?product_id=$products_id' class='btn btn-secondary'>View more</a>
                             </div>
                         </div>
@@ -83,7 +85,7 @@
                             <div class='card-body'>
                                 <h5 class='card-title'>$products_title</h5>
                                 <p class='card-text'>$products_description</p>
-                                <a href='#' class='btn btn-info'>Add to cart</a>
+                                <a href='index.php?add_to_cart=$products_id' class='btn btn-info'>Add to cart</a>
                                 <a href='product-details.php?product_id=$products_id' class='btn btn-secondary'>View more</a>
                             </div>
                         </div>
@@ -107,15 +109,15 @@
             $category_id=$_GET['category'];
             
             try {
-            // Prepare and execute the query to fetch the products
-            //$select_query = "SELECT * FROM `productsInserted` order by products_title"; 
-            $select_query = "SELECT * FROM `productsInserted` WHERE categories_id=$category_id";
-            $stmt = $con->prepare($select_query);
-            $stmt->execute();
-            $number_of_rows = $stmt->rowCount();
-            if($number_of_rows==0){
-                echo "<h2 class='text-center text-danger'>No stock for this category</h2>";
-            }
+                // Prepare and execute the query to fetch the products
+                //$select_query = "SELECT * FROM `productsInserted` order by products_title"; 
+                $select_query = "SELECT * FROM `productsInserted` WHERE categories_id=$category_id";
+                $stmt = $con->prepare($select_query);
+                $stmt->execute();
+                $number_of_rows = $stmt->rowCount();
+                if($number_of_rows==0){
+                    echo "<h2 class='text-center text-danger'>No stock for this category</h2>";
+                }
 
                 // Fetch the first row (product) from the result set
                 //$row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -136,7 +138,7 @@
                         <div class='card-body'>
                             <h5 class='card-title'>$products_title</h5>
                             <p class='card-text'>$products_description</p>
-                            <a href='#' class='btn btn-info'>Add to cart</a>
+                            <a href='index.php?add_to_cart=$products_id' class='btn btn-info'>Add to cart</a>
                             <a href='product-details.php?product_id=$products_id' class='btn btn-secondary'>View more</a>
                         </div>
                     </div>
@@ -160,15 +162,15 @@
             $brand_id=$_GET['brand'];
             
             try {
-            // Prepare and execute the query to fetch the products
-            //$select_query = "SELECT * FROM `productsInserted` order by products_title"; 
-            $select_query = "SELECT * FROM `productsInserted` WHERE  brands_id=$brand_id";
-            $stmt = $con->prepare($select_query);
-            $stmt->execute();
-            $number_of_rows = $stmt->rowCount();
-            if($number_of_rows==0){
-                echo "<h2 class='text-center text-danger'>This brand is not available for service</h2>";
-            }
+                // Prepare and execute the query to fetch the products
+                //$select_query = "SELECT * FROM `productsInserted` order by products_title"; 
+                $select_query = "SELECT * FROM `productsInserted` WHERE  brands_id=$brand_id";
+                $stmt = $con->prepare($select_query);
+                $stmt->execute();
+                $number_of_rows = $stmt->rowCount();
+                if($number_of_rows==0){
+                    echo "<h2 class='text-center text-danger'>This brand is not available for service</h2>";
+                }
 
                 // Fetch the first row (product) from the result set
                 //$row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -189,7 +191,7 @@
                         <div class='card-body'>
                             <h5 class='card-title'>$products_title</h5>
                             <p class='card-text'>$products_description</p>
-                            <a href='#' class='btn btn-info'>Add to cart</a>
+                            <a href='index.php?add_to_cart=$products_id' class='btn btn-info'>Add to cart</a>
                             <a href='product-details.php?product_id=$products_id' class='btn btn-secondary'>View more</a>
                         </div>
                     </div>
@@ -272,7 +274,7 @@
                         <div class='card-body'>
                             <h5 class='card-title'>$products_title</h5>
                             <p class='card-text'>$products_description</p>
-                            <a href='#' class='btn btn-info'>Add to cart</a>
+                            <a href='index.php?add_to_cart=$products_id' class='btn btn-info'>Add to cart</a>
                             <a href='product-details.php?product_id=$products_id' class='btn btn-secondary'>View more</a>
                         </div>
                     </div>
@@ -325,8 +327,8 @@
                                         <div class='card-body'>
                                             <h5 class='card-title'>$products_title</h5>
                                             <p class='card-text'>$products_description</p>
-                                            <a href='#' class='btn btn-info'>Add to cart</a>
-                                            <a href='#' class='btn btn-secondary'>View more</a>
+                                            <a href='index.php?add_to_cart=$products_id' class='btn btn-info'>Add to cart</a>
+                                            <a href='index.php' class='btn btn-secondary'>Go home</a>
                                         </div>
                                     </div>
                                 </div>
@@ -362,4 +364,53 @@
         }
     }
 
+    // Get ip address function
+    function getIPAddress() {  
+        //whether ip is from the share internet  
+         if(!empty($_SERVER['HTTP_CLIENT_IP'])) {  
+                    $ip = $_SERVER['HTTP_CLIENT_IP'];  
+            }  
+        //whether ip is from the proxy  
+        elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {  
+                    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];  
+         }  
+    //whether ip is from the remote address  
+        else{  
+                 $ip = $_SERVER['REMOTE_ADDR'];  
+         }  
+         return $ip;  
+    }  
+    //$ip = getIPAddress();  
+    //echo 'User Real IP Address - '.$ip; 
+    
+    function cart() {
+        if(isset($_GET['add_to_cart'])) {
+            global $con;
+            $get_ip_address = getIPAddress();
+            $get_product_id = $_GET['add_to_cart'];
+            try {
+                $select_query = "SELECT * FROM `cart_details` WHERE ip_address=:ip_address AND product_id=:product_id";
+                $stmt = $con->prepare($select_query);
+                $stmt->bindParam(':ip_address', $get_ip_address);
+                $stmt->bindParam(':product_id', $get_product_id);
+                $stmt->execute();
+                $number_of_rows = $stmt->rowCount();
+                if($number_of_rows > 0) {
+                    echo "<script>alert('This item is already present inside cart')</script>";
+                    echo "<script>window.open('index.php', '_self')</script>";
+                } else {
+                    $insert_query = "INSERT INTO `cart_details` (product_id, ip_address, quantity) VALUES (:product_id, :ip_address, 0)";
+                    // Prepare and execute query
+                    $stm = $con->prepare($insert_query);
+                    $stm->bindParam(':product_id', $get_product_id);
+                    $stm->bindParam(':ip_address', $get_ip_address);
+                    $stm->execute();
+                    echo "<script>window.open('index.php', '_self')</script>";
+                }
+            } catch(PDOException $e) {
+                echo "Error : " . $e->getMessage();
+            }
+        }
+    }
+    
 ?>
